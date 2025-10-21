@@ -1,7 +1,10 @@
 const axios = require('axios');
 
 // 通义千问API配置
-const DASHSCOPE_API_KEY = process.env.DASHSCOPE_API_KEY || 'sk-998d60a5ecf64cb4903ec626d83a1899';
+const DASHSCOPE_API_KEY = process.env.DASHSCOPE_API_KEY;
+if (!DASHSCOPE_API_KEY) {
+  return res.status(500).json({ error: 'API密钥未配置' });
+}
 const DASHSCOPE_API_URL = 'https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation';
 
 module.exports = async (req, res) => {
@@ -77,8 +80,8 @@ module.exports = async (req, res) => {
     }, {
       headers: {
         'Authorization': `Bearer ${DASHSCOPE_API_KEY}`,
-        'Content-Type': 'application/json',
-        'X-DashScope-Async': 'enable' // 如果需要异步调用
+        'Content-Type': 'application/json'
+        //'X-DashScope-Async': 'enable' // 如果需要异步调用
       }
     });
     
@@ -118,4 +121,5 @@ module.exports = async (req, res) => {
       note: "当前使用备用回复，配置API密钥后可体验真实AI对话"
     });
   }
+
 };
