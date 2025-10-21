@@ -29,7 +29,8 @@
     }
   ],
   "env": {
-    "DASHSCOPE_API_KEY": "@DASHSCOPE_API_KEY"
+    "DASHSCOPE_API_KEY": "sk-998d60a5ecf64cb4903ec626d83a1899"
   }
 
 }
+
