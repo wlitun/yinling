@@ -1,0 +1,488 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+:root {
+    --primary-green: #4CAF50;
+    --secondary-green: #81C784;
+    --warm-orange: #FF9800;
+    --light-orange: #FFB74D;
+    --light-color: #f8f9fa;
+    --dark-color: #2E2E2E;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --font-large: 1.3rem;
+    --font-xlarge: 1.8rem;
+    --font-xxlarge: 2.5rem;
+}
+
+body {
+    font-family: "Microsoft YaHei", sans-serif;
+    font-size: var(--font-large);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: linear-gradient(135deg, #f8fff8 0%, #fff8f0 100%);
+    min-height: 100vh;
+}
+
+/* 导航栏样式 */
+.navbar {
+    background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: var(--font-xlarge);
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.navbar-brand i {
+    color: var(--warm-orange);
+}
+
+.nav-link {
+    color: var(--text-light);
+    font-size: var(--font-large);
+    margin: 0 8px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-light);
+    transform: translateY(-2px);
+}
+
+/* 主内容区域 */
+.main-content {
+    min-height: calc(100vh - 150px);
+    padding: 40px 0;
+}
+
+.page-section {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.page-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 首页样式 */
+.hero-section {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(255, 152, 0, 0.1));
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.hero-title {
+    font-size: var(--font-xxlarge);
+    color: var(--warm-orange);
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.hero-subtitle {
+    font-size: var(--font-xlarge);
+    color: var(--primary-green);
+    margin-bottom: 30px;
+}
+
+.btn {
+    font-size: var(--font-large);
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: bold;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary-green);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* 功能卡片样式 */
+.feature-section {
+    margin: 50px 0;
+}
+
+.section-title {
+    font-size: var(--font-xlarge);
+    color: var(--primary-green);
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(76, 175, 80, 0.1);
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+
+.feature-icon {
+    font-size: 4rem;
+    margin-bottom: 25px;
+    
+    /* 渐变文本效果 - 完整浏览器支持 */
+    background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+    
+    /* 标准属性 */
+    background-clip: text;
+    
+    /* 浏览器前缀版本 */
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    
+    /* 文本颜色透明 */
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    
+    /* 备用方案：如果渐变文本不支持，使用纯色 */
+    @supports not (background-clip: text) {
+        color: var(--primary-green);
+        background: none;
+    }
+}
+
+.feature-title {
+    font-size: var(--font-xlarge);
+    color: var(--primary-green);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.feature-description {
+    font-size: var(--font-large);
+    color: var(--text-dark);
+    margin-bottom: 25px;
+}
+
+.card-hint {
+    background: rgba(76, 175, 80, 0.9);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 1rem;
+    display: inline-block;
+}
+
+/* 聊天界面样式 */
+.chat-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(76, 175, 80, 0.1);
+}
+
+.chat-header {
+    background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+    color: white;
+    padding: 20px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background: #fafafa;
+}
+
+.message {
+    max-width: 80%;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    position: relative;
+    line-height: 1.5;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.user-message {
+    align-self: flex-end;
+    background: linear-gradient(135deg, var(--warm-orange), var(--light-orange));
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.ai-message {
+    align-self: flex-start;
+    background: white;
+    color: var(--text-dark);
+    border-bottom-left-radius: 5px;
+    border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.chat-input {
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    background: white;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: var(--font-large);
+    transition: all 0.3s ease;
+}
+
+.chat-input input:focus {
+    border-color: var(--primary-green);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.chat-input button {
+    margin-left: 15px;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+    border: none;
+}
+
+/* 语音控制区域 */
+.voice-control {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    padding: 25px;
+    margin-top: 20px;
+    border: 1px solid rgba(76, 175, 80, 0.1);
+}
+
+.voice-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+    color: white;
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+}
+
+.voice-btn:hover {
+    transform: scale(1.1);
+}
+
+.voice-btn.listening {
+    animation: pulse 1.5s infinite;
+    background: linear-gradient(135deg, var(--warm-orange), var(--light-orange));
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(76, 175, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+}
+
+/* 卡片样式 */
+.card {
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid rgba(76, 175, 80, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* 页脚样式 */
+footer {
+    background: linear-gradient(135deg, var(--dark-color), #424242);
+    color: var(--text-light);
+    padding: 40px 0 20px;
+    margin-top: 60px;
+}
+
+footer h5 {
+    color: var(--warm-orange);
+    margin-bottom: 20px;
+}
+
+footer a {
+    color: var(--text-light);
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--warm-orange);
+}
+
+/* 表单元素美化 */
+.form-select, .form-control {
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+    padding: 12px 15px;
+    font-size: var(--font-large);
+    transition: all 0.3s ease;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+/* 徽章样式 */
+.badge {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin: 2px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    :root {
+        --font-large: 1.2rem;
+        --font-xlarge: 1.5rem;
+        --font-xxlarge: 2rem;
+    }
+    
+    .hero-section {
+        padding: 20px;
+    }
+    
+    .feature-card {
+        margin-bottom: 20px;
+    }
+    
+    .chat-container {
+        height: 400px;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+    }
+}
+/* 添加到style.css */
+
+/* 食谱卡片新样式 */
+.recipe-header {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.recipe-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(76, 175, 80, 0.1);
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* 加载动画 */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* 提示信息样式 */
+.alert {
+    border-radius: 12px;
+    border: none;
+    font-size: var(--font-large);
+}
+
+/* 步骤列表样式 */
+ol {
+    padding-left: 1.5rem;
+}
+
+ol li {
+    margin-bottom: 0.5rem;
+}
+
+/* 徽章样式优化 */
+.badge {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin: 2px;
+}
